@@ -7,6 +7,7 @@
     <div class="section">
         <div class="container">
             <div class="filters">
+
                 <form method="get" action="">
                     @include('stylist.select')
                     @include('common.occasion.select')
@@ -16,6 +17,8 @@
                     @include('common.budget.select')
                     @include('common.age_group.select')
                     @include('common.search')
+                    @include('common.daterange')
+                    @include('common.pricerange')
                     <input type="submit" name="filter" value="Filter"/>
                     <a href="{{url('look/list')}}" class="clearall">Clear All</a>
                 </form>
@@ -28,6 +31,7 @@
             @if(count($looks) == 0)
                 No Looks found
             @endif
+
             @foreach($looks as $look)
                 <li class="ui-state-default" look_id="{{$look->id}}">
                     <div class="items">

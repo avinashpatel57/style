@@ -73,7 +73,13 @@
                                             <img class="entity" src="{{strpos($look->image, "http") !== false ? $look->image : asset('images/' . $look->image)}}"/>
                                         </a>
                                     @endforeach
-                                    <a style="color:blue;font-size:13px;" href="{{url('look/list?stylish_id=' . $stylist->stylish_id)}}">View all</a>
+                                    <br />
+                                    <a class="product_link" href="{{url('look/list?stylish_id=' . $stylist->stylish_id)}}">View all</a>
+                                    <a class="product_link" href="{{url('look/list?stylish_id=' . $stylist->stylish_id.'&status_id=1')}}">Active</a>
+                                    <a class="product_link" href="{{url('look/list?stylish_id=' . $stylist->stylish_id.'&status_id=6')}}">Approved</a>
+                                    <a class="product_link" href="{{url('look/list?stylish_id=' . $stylist->stylish_id.'&status_id=5')}}">Submitted</a>
+                                    <a class="product_link" href="{{url('look/list?stylish_id=' . $stylist->stylish_id.'&status_id=4')}}">In Progress</a>
+                                    <a class="product_link" href="{{url('look/list?stylish_id=' . $stylist->stylish_id.'&status_id=7')}}">Rejected</a>
                                 @else
                                     None
                                 @endif
@@ -89,6 +95,12 @@
                                 @else
                                     None
                                 @endif
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td class="head">Clients</td>
+                            <td class="content">
+                                <a class="product_link" href="{{url('client/list?stylish_id=' . $stylist->stylish_id)}}">View All</a>
                             </td>
                         </tr>
                     </table>

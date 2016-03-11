@@ -15,6 +15,8 @@
                     @include('common.gender.select')
                     @include('common.color.select')
                     @include('common.search')
+                    @include('common.daterange')
+                    @include('common.pricerange')
                     <input type="submit" name="filter" value="Filter"/>
                     <a href="{{url('product/list')}}" class="clearall">Clear All</a>
                 </form>

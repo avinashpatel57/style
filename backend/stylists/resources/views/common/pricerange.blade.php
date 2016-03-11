@@ -1,0 +1,2 @@
+<input type="text" name="min_price" value="{{$min_price}}" placeholder="Min Price" class="form-control search">-
+<input type="text" name="max_price" value="{{$max_price}}" placeholder="Max Price" class="form-control search">

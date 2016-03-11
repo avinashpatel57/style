@@ -31,7 +31,9 @@ div.filters form select, div.filters form input[type="text"]{padding: 2px 0 1px 
 div.filters form input[type="submit"]{background-color: #D32F2F;border: 1px beige;color: white;font-weight: bold;padding: 3px 4px 3px 4px;margin:1px 5px 0px 0px;}
 div.filters form.approve{margin-left: 10px;}
 div.filters form.approve input[type="submit"]{background-color: white;border: none;color:#D32F2F;text-decoration:underline;cursor:pointer;}
-div.filters form input.search{width:150px;}
+div.filters form input.search{width:55px;}
+div.filters form input.search_text{width:120px;}
+
 div.filters form a.clearall{color: #000;font-size: 12px;text-decoration: underline;}
 
 span.errorMsg{color:red;}

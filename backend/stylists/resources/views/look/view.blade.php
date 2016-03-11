@@ -14,7 +14,9 @@
                     <table class="info">
                         <tr class="row">
                             <td class="title" colspan="2">{{$look->name}}
+                                @if($is_owner_or_admin)
                                 <a class="product_link" href="{{url('look/edit/' . $look->id)}}" title="{{$look->name}}" >Edit</a>
+                                @endif
                             </td>
                         </tr>
                         <tr class="row">
@@ -40,6 +42,9 @@
                         </tr>
                         <tr class="row">
                             <td class="head">Status</td><td class="content">{{$status->name}} </td>
+                        </tr>
+                        <tr class="row">
+                            <td class="head">Created At</td><td class="content">{{date('d/M/Y', strtotime($look->created_at))}} </td>
                         </tr>
                         <tr class="row">
                             <td class="head">Stylist</td>

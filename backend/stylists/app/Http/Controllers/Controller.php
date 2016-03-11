@@ -16,7 +16,7 @@ abstract class Controller extends BaseController
 
     protected $base_table;
     protected $filters = [];
-    protected $records_per_page=25;
+    protected $records_per_page=24;
     protected $where_conditions = [];
     protected $where_raw = "1=1";
     protected $brands = [];
@@ -39,9 +39,31 @@ abstract class Controller extends BaseController
                 $this->where_conditions[$this->base_table . '.' . $filter_id] = $request->input($filter_id);
             }
         }
+
+        $where_raw = [];
+
         if($request->input('search') != "" and strlen(trim($request->input('search')))>0){
             $search_term  = trim($request->input('search'));
-            $this->where_raw = "({$this->base_table}.name like '%{$search_term}%' OR {$this->base_table}.description like '%{$search_term}%')";
+            $where_raw[] = "({$this->base_table}.name like '%{$search_term}%' OR {$this->base_table}.description like '%{$search_term}%')";
+        }
+
+        if($request->input('from_date') != ""){
+            $where_raw[] = "({$this->base_table}.created_at >= '" . date("Y-m-d",strtotime($request->input('from_date'))) . "')";
+        }
+
+        if($request->input('to_date') != ""){
+            $where_raw[] = "({$this->base_table}.created_at <= '" . date("Y-m-d",strtotime($request->input('to_date'))) . "')";
+        }
+
+        if($request->input('min_price') != ""){
+            $where_raw[] = "({$this->base_table}.price >= '{$request->input('min_price')}')";
+        }
+
+        if($request->input('max_price') != ""){
+            $where_raw[] = "({$this->base_table}.price <= '{$request->input('max_price')}')";
+        }
+        if($where_raw){
+            $this->where_raw = implode(" AND ", $where_raw);
         }
 
     }
